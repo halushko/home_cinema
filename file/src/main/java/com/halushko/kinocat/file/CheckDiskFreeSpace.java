@@ -12,35 +12,36 @@ import java.util.List;
 public class CheckDiskFreeSpace extends CliCommandExecutor {
     @Override
     protected String getResultString(List<String> lines, SmartJson rabbitMessage) {
-        log.debug(String.format("[CheckDiskFreeSpace] [%s]", String.join(", ", lines)));
+        log.debug(String.format("[CheckDiskFreeSpace] df -h result:\n[%s]", String.join("\n", lines)));
+        log.debug(String.format("[CheckDiskFreeSpace] folders:\n[%s]", String.join("\n", Constants.FOLDERS.keySet())));
+
         StringBuilder sb = new StringBuilder("Вільного місця у сховищі:");
-
-        for (String line : lines) {
-            sb.append("\n").append(line);
-        }
-
         for (val device : Constants.FOLDERS.entrySet()) {
-            boolean flag = false;
-            sb.append("\n").append(device.getKey());
+            boolean storageIsFound = false;
             for (String line : lines) {
                 if (line.matches(device.getKey() + ".*")) {
-                    String size = line;
-                    size = size.replaceAll("^\\S+\\s+\\S+\\s+\\S+\\s+", "");
-                    size = size.replaceAll("\\S+\\s+\\S+\\s*$", "");
-
                     sb.append("\n").append(device.getKey());
-                    sb.append(": ").append(size);
+                    sb.append(": ").append(getSize(line));
 
-                    flag = true;
+                    log.debug(String.format("[CheckDiskFreeSpace] Folder [%s] is present in line [%s]", device.getKey(), line));
+                    storageIsFound = true;
                     break;
                 }
+                log.debug(String.format("[CheckDiskFreeSpace] Folder [%s] is NOT present in line [%s]", device.getKey(), line));
             }
-            if (!flag) {
+            if (!storageIsFound) {
                 sb.append("\n").append(device.getKey()).append(": не вказано Filesystem у налаштуваннях");
             }
         }
 
         return sb.toString();
+    }
+
+    private static String getSize(String line) {
+        String size = line;
+        size = size.replaceAll("^\\S+\\s+\\S+\\s+\\S+\\s+", "");
+        size = size.replaceAll("\\S+\\s+\\S+\\s*$", "");
+        return size;
     }
 
     @Override
