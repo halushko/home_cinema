@@ -16,10 +16,10 @@ public class CheckDiskFreeSpace extends CliCommandExecutor {
         log.debug(String.format("[CheckDiskFreeSpace] folders:\n[%s]", String.join("\n", Constants.FOLDERS.keySet())));
 
         StringBuilder sb = new StringBuilder("Вільного місця у сховищі:");
-        for (val device : Constants.FOLDERS.entrySet()) {
+        for (val device : Constants.DEVICES.entrySet()) {
             boolean storageIsFound = false;
             for (String line : lines) {
-                if (line.matches(device.getKey() + ".*")) {
+                if (line.matches(device.getValue() + ".*")) {
                     sb.append("\n").append(device.getKey());
                     sb.append(": ").append(getSize(line));
 
