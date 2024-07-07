@@ -13,7 +13,7 @@ public class CheckDiskFreeSpace extends CliCommandExecutor {
     @Override
     protected String getResultString(List<String> lines, SmartJson rabbitMessage) {
         log.debug(String.format("[CheckDiskFreeSpace] df -h result:\n[%s]", String.join("\n", lines)));
-        log.debug(String.format("[CheckDiskFreeSpace] folders:\n[%s]", String.join("\n", Constants.FOLDERS.keySet())));
+        log.debug(String.format("[CheckDiskFreeSpace] folders:\n[%s]", String.join("\n", Constants.DEVICES.keySet())));
 
         StringBuilder sb = new StringBuilder("Вільного місця у сховищі:");
         for (val device : Constants.DEVICES.entrySet()) {
