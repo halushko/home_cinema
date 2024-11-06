@@ -86,5 +86,10 @@ public interface Constants {
                 Queues.File.MOVE_TO_FOLDER,
                 "<папка> <файл> обрати в яку папку буде завантаження"
         );
+
+        addValue(Commands.File.SHOW_FREE_SPACE,
+                Queues.File.SHOW_FREE_SPACE,
+                "відобразити вільне місце у сховищі"
+        );
     }};
 }

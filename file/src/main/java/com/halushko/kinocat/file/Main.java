@@ -7,5 +7,6 @@ public class Main {
         new UserMessageHandler().run();
         new PrintDestinations().run();
         new MoveToDestinationFolder().run();
+        new CheckDiskFreeSpace().run();
     }
 }

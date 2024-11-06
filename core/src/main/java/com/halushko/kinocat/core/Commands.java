@@ -23,5 +23,6 @@ public interface Commands {
 
     interface File {
         String SELECT_DESTINATION = "/start_";
+        String SHOW_FREE_SPACE = "/space";
     }
 }

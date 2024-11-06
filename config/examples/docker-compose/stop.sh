@@ -1,27 +1,27 @@
 #!/bin/bash
 
 stop_broker() {
-    /usr/bin/docker-compose -f /home/dima/media/docker-compose-broker.yml down --remove-orphans
+    /usr/bin/docker-compose -f /home/dima/media/docker-compose-broker.yml down
 }
 
 stop_media() {
-    /usr/bin/docker-compose -f /home/dima/media/docker-compose-media.yml down --remove-orphans
+    /usr/bin/docker-compose -f /home/dima/media/docker-compose-media.yml down
 }
 
 stop_bot() {
-    /usr/bin/docker-compose -f /home/dima/media/docker-compose-bot.yml down --remove-orphans
+    /usr/bin/docker-compose -f /home/dima/media/docker-compose-bot.yml down
 }
 
 stop_torrent() {
-    /usr/bin/docker-compose -f /home/dima/media/docker-compose-torrent.yml down --remove-orphans
+    /usr/bin/docker-compose -f /home/dima/media/docker-compose-torrent.yml down
 }
 
 stop_torrent_hdd() {
-    /usr/bin/docker-compose -f /home/dima/media/docker-compose-torrent-hdd.yml down --remove-orphans
+    /usr/bin/docker-compose -f /home/dima/media/docker-compose-torrent-hdd.yml down
 }
 
 stop_torrent_low() {
-    /usr/bin/docker-compose -f /home/dima/media/docker-compose-torrent-low.yml down --remove-orphans
+    /usr/bin/docker-compose -f /home/dima/media/docker-compose-torrent-low.yml down
 }
 
 keys_specified=false

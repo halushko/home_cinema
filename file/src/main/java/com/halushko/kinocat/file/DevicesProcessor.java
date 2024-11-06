@@ -7,9 +7,9 @@ import com.halushko.kinocat.core.prcessors.ValueProcessor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FoldersProcessor extends ServicesInfoProcessor {
+public class DevicesProcessor extends ServicesInfoProcessor {
 
-    public FoldersProcessor(String json) {
+    public DevicesProcessor(String json) {
         super(json);
     }
 
@@ -20,7 +20,9 @@ public class FoldersProcessor extends ServicesInfoProcessor {
 
     @Override
     public List<ValueProcessor> getServiceProcessors() {
-        return new ArrayList<>();
+        return new ArrayList<>() {{
+            this.add(new ValueProcessor("folder", ""));
+        }};
     }
 
     @Override

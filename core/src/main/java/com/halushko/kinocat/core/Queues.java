@@ -31,5 +31,6 @@ public interface Queues {
     interface File {
         String CHOOSE_THE_DESTINATION = "FILE_CHOOSE_THE_DESTINATION";
         String MOVE_TO_FOLDER = "FILE_MOVE_TO_FOLDER";
+        String SHOW_FREE_SPACE = "FILE_SHOW_FREE_SPACE";
     }
 }

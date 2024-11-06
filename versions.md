@@ -23,8 +23,10 @@
 - fix access of unauthorized users
 ### 1.19.1
 - change search, remove it from /list
-### 1.19.2 (alpha/beta)
+### 1.19.2 (alpha)
 - add /downloads command
+### 1.19.3 (beta)
+- fix stop.sh script
 ## 1.20 Planning (_TODO_)
 - fix error `build_core / build_core The 'save-state' command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/`
 - add life update of the last message

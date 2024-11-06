@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class PrintDestinations extends CliCommandExecutor {
     @Override
     protected String getResultString(List<String> lines, SmartJson rabbitMessage) {
-        log.debug(String.format("[getResultString] [%s]", String.join(", ", lines)));
+        log.debug(String.format("[PrintDestinations] [%s]", String.join(", ", lines)));
         String[] result = new String[4];
         result[0] = "(";
         result[2] = ") ";
@@ -32,18 +32,14 @@ public class PrintDestinations extends CliCommandExecutor {
                 Constants.FOLDERS.keySet().stream()
                         .map(folder ->
                                 String.format("\n%s: %s%s_%s",
-                                        getServiceLable(folder),
+                                        folder,
                                         Commands.File.SELECT_DESTINATION,
-                                        getServiceLable(folder),
+                                        folder,
                                         fileName
                                 )
                         )
                         .collect(Collectors.joining(""))
         );
-    }
-
-    private static String getServiceLable(String folder) {
-        return folder.isEmpty() ? Constants.EMPTY_SERVICE_DEFAULT_NAME : folder;
     }
 
     @Override

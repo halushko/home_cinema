@@ -45,6 +45,7 @@ services:
       - ./workdir/config/files_from_telegram_hdd:/home/torrent_files_hdd/
       - ./workdir/config/files_from_telegram_low:/home/torrent_files_low/
       - ./workdir/config/logs:/home/app/logs
+      - ./workdir/mediadata_hdd/mediadata:/home/app/tmp1
     networks:
       bot_network_local:
 networks:
